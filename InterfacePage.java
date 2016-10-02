@@ -1,5 +1,8 @@
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,7 +19,7 @@ public class InterfacePage {
 	
 		//Button Display Panel
 		JPanel buttonContainer = new JPanel();
-		buttonContainer.setLayout(new FlowLayout());
+		buttonContainer.setLayout(new GridBagLayout());
 		buttonContainer.setPreferredSize(new Dimension(width, height));
 	
 		//Buttons
@@ -34,8 +37,11 @@ public class InterfacePage {
 		scheduledPaymentsButton.setPreferredSize(new Dimension(width/2,height/4));
 		JButton notesButton = new JButton("Notes");
 		notesButton.setPreferredSize(new Dimension(width/2,height/4));
-
-		buttonContainer.add(accountsButton);
+		
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridwidth = 2;
+		c.gridheight = 2;
+		buttonContainer.add(accountsButton, c);
 		buttonContainer.add(incomeButton);
 		buttonContainer.add(expensesButton);
 		buttonContainer.add(envelopesButton);
