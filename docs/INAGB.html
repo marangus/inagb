@@ -1,0 +1,130 @@
+<html>
+<h1>Outline/Purpose</h1>
+To provide a simple and easy to use budgeting system that allows money to be
+assigned to categories that constitute an area of expense.
+
+For every category of spending there is a corrasponding envelope. This ensure
+that money can be set aside for that type of spending.
+
+Accounts can be added to represent accounts existing in the real world to ensure
+checks can be made to ensure everything is accounted for.
+
+The system will also allow credit card spending and debt to contribute to total
+available funds.
+
+Accounts will assign expenses to a category this then removes this money from
+the envelope.
+
+Income can be slipt in to different sources and added to accounts when received
+
+At the beginning of each budget cycle an amount is specified for each envelope and
+these funds are taken from the pool of income and dispersed to the envelopes.
+
+The user has the option of dispersing every dollar proportionally or simply specify
+the amounts assigned to the envelopes the former dispersing every doller in the pool.
+
+Credit cards provide 0 income and any amount withdrawn from the card is considered
+a debt and subtracted from the net avaiable funds. Money can be transfered to a
+credit card to remove the debt. This would represent a credit card payment in the
+real world.
+
+Example
+
+Accounts            Amount      Limit
+Everyday Account    $1000       N/A
+Saving Acccount     $30,000     N/A
+Credit Card         -$100       $2000
+Cash                $20         N/A
+Coin                $12.85      N/A
+
+Envelopes           Weekly Budget   Weekly spend
+Morgage             $300            $300
+Groceries           $100            $65(
+
+<h1>Screenshots</h1>
+<img src
+
+
+<h1>Classes</h2>
+
+<h2>Core Components</h2>
+
+User
+- string        userName
+- string        password (encrypted hash)
+- Account[]     accounts
+- Envelope[]    evelopes
+- Currency      netTotal
+________________________
+
++ string        getUserName()
++ void          setUserName()
++ string        getPassword()
++ void          setPassword()
+
+Account
+- string        name
+- Currency      total
+________________
++ string        getName()
++ void          setName()
++ Currency      getTotal()
++ void          setTotal()
++ void          addTransaction()
++ void          removeTransaction()
+
+BankAccount extends Account
+- string        bankName
+______________________________
++ string        getBankName()
++ void          setBankName()
+
+
+Envelope extends Account
+- Currency      budgetAmount
+________________________
++ Currency      getBugetAmount()
++ void          setBudgetAmount()
+
+Transaction
+- date          date
+- amount        currency
+- category      category
+- string        otherParty
+- string        description
+__________________________
+
++ Date          getDate()
++ void          setDate()
++ Currency      getAmount()
++ void          setAmount()
++ Category      getCategory()
++ void          setCategory()
++ string        getOtherParty()
++ void          setOtherParty()
++ string        getDescription()
++ void          setDescription()
+
+
+Withdrawal extends Transaction
+
+Deposit extends Transaction
+
+
+<h2> Utilities </h2>
+Currency
+- dollars Integer
+- cents Integer
+
+Date
+- day integer
+- month integer
+- year integer
+
+
+<h2>INAGB Interface</h2>
+*Pages
+MainScreen
+-buttons button[]
+
+</html>

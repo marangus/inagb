@@ -1,6 +1,6 @@
-//interface for budget software
+package src.program
 
-public class interface {
+public class INAGB {
     //public static void main(String[] args){
         // allow user to add account 
        public void addAccount(String name,Money value){
