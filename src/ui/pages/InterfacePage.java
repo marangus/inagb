@@ -8,32 +8,37 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class InterfacePage {
-	
-	public static void main(String args[]){
-		//Main Window Frame
-		JFrame mainWindow = new JFrame("INAGB");
-	
-		int width = 1080;
-		int height = 1920;
-	
-		//Button Display Panel
-		JPanel buttonContainer = new JPanel(new GridBagLayout());
-		buttonContainer.setPreferredSize(new Dimension(width, height));
+public class InterfacePage extends JPanel {
 		
-		//Constrain gridbag layout
+	//Constants
+	final Insets buttonInsets  = new Insets(0,0,0,0); 
+
+	//Variables
+	int width;
+	int height;
+	
+	//buttons
+	JButton accountsButton;
+	JButton incomeButton;
+	JButton expensesButton;
+	JButton envelopesButton;
+	JButton accountTransfersButton;
+	JButton scheduledPaymentsButton;
+	JButton notesButton;
+	
+	
+	public InterfacePage(int width, int height)
+	{
+		this.width = width;
+		this.height = width;
+		
+		this.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
-		/*if (shouldFill) {
-            //natural height, maximum width
-            gbc.fill = GridBagConstraints.HORIZONTAL;
-		}*/
-		final Insets buttonInsets  = new Insets(0,0,0,0); 
-		
-		//Buttons
+		this.setPreferredSize(new Dimension(width, height));
 		
 		//Accounts button
-		JButton accountsButton = new JButton("Accounts");
-		accountsButton.setPreferredSize(new Dimension(width/2,height/4));
+		this.accountsButton = new JButton("Accounts");
+		this.accountsButton.setPreferredSize(new Dimension(width/2,height/4));
 		gbc.insets = buttonInsets;
 		gbc.gridx = 0;
 		gbc.gridy = 0;
@@ -43,11 +48,11 @@ public class InterfacePage {
         gbc.anchor = GridBagConstraints.NORTHWEST;
         gbc.weightx = 1;
         gbc.weighty = 1;
-        buttonContainer.add(accountsButton, gbc);
-		
+        this.add(accountsButton, gbc);
+        
         //Income button
-		JButton incomeButton = new JButton("Income");
-		incomeButton.setPreferredSize(new Dimension(width/2,height/8));
+		this.incomeButton = new JButton("Income");
+		this.incomeButton.setPreferredSize(new Dimension(width/2,height/8));
 		gbc.insets = buttonInsets;
 		gbc.gridy = 0;
 		gbc.gridx = 1;
@@ -56,11 +61,11 @@ public class InterfacePage {
 		gbc.fill = GridBagConstraints.BOTH;
         gbc.weightx = 1;
 		gbc.weighty = 1;
-		buttonContainer.add(incomeButton, gbc);
+		this.add(incomeButton, gbc);
 		
 		//Expenses Button
-		JButton expensesButton = new JButton("Expenses");
-		expensesButton.setPreferredSize(new Dimension(width/2,height/8));
+		this.expensesButton = new JButton("Expenses");
+		this.expensesButton.setPreferredSize(new Dimension(width/2,height/8));
 		gbc.insets = buttonInsets;
 		gbc.gridy = 1;
 		gbc.gridx = 1;
@@ -69,12 +74,11 @@ public class InterfacePage {
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weightx = 1;
 		gbc.weighty = 1;
-		buttonContainer.add(expensesButton, gbc);
-				
+		this.add(expensesButton, gbc);
 		
 		//Envelopes Button
-		JButton envelopesButton = new JButton("Envelopes");
-		envelopesButton.setPreferredSize(new Dimension(width,height/4));
+		this.envelopesButton = new JButton("Envelopes");
+		this.envelopesButton.setPreferredSize(new Dimension(width,height/4));
 		gbc.insets = buttonInsets;
 		gbc.gridy = 2;
 		gbc.gridx = 0;
@@ -83,10 +87,11 @@ public class InterfacePage {
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weightx = 1;
 		gbc.weighty = 1;
-		buttonContainer.add(envelopesButton, gbc);		
+		this.add(envelopesButton, gbc);		
 		
-		JButton accountTransfersButton = new JButton("Account Transfers");
-		accountTransfersButton.setPreferredSize(new Dimension(width,height/4));
+		//Accounts transer button
+		this.accountTransfersButton = new JButton("Account Transfers");
+		this.accountTransfersButton.setPreferredSize(new Dimension(width,height/4));
 		gbc.insets = buttonInsets;
 		gbc.gridy = 3;
 		gbc.gridx = 0;
@@ -95,10 +100,11 @@ public class InterfacePage {
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weightx = 1;
 		gbc.weighty = 1;
-		buttonContainer.add(accountTransfersButton);
+		this.add(accountTransfersButton);
 		
-		JButton scheduledPaymentsButton = new JButton("Scheduled Payments");
-		scheduledPaymentsButton.setPreferredSize(new Dimension(width/2,height/4));
+		//Scheduled payments button
+		this.scheduledPaymentsButton = new JButton("Scheduled Payments");
+		this.scheduledPaymentsButton.setPreferredSize(new Dimension(width/2,height/4));
 		gbc.gridy = 4;
 		gbc.gridx = 0;
 		gbc.gridwidth = 2;
@@ -106,10 +112,11 @@ public class InterfacePage {
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weightx = 1;
 		gbc.weighty = 1;
-		buttonContainer.add(scheduledPaymentsButton);
+		this.add(scheduledPaymentsButton);
 		
-		JButton notesButton = new JButton("Notes");
-		notesButton.setPreferredSize(new Dimension(width/2,height/4));
+		//Notes button
+		this.notesButton = new JButton("Notes");
+		this,notesButton.setPreferredSize(new Dimension(width/2,height/4));
 		gbc.gridy = 4;
 		gbc.gridx = 1;
 		gbc.gridwidth = 2;
@@ -117,13 +124,6 @@ public class InterfacePage {
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weightx = 1;
 		gbc.weighty = 1;
-		buttonContainer.add(notesButton);
-		
-		//Set content in main window
-		mainWindow.setContentPane(buttonContainer);	
-		mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainWindow.pack();
-		mainWindow.setVisible(true);
+		this.add(notesButton);		
 	}
-		
-}
+}		
