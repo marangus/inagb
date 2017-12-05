@@ -5,11 +5,15 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class InterfacePage extends JPanel {
 		
+	/**
+	 * Required constant for JPanel 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	//Constants
 	final Insets buttonInsets  = new Insets(0,0,0,0); 
 
@@ -116,7 +120,7 @@ public class InterfacePage extends JPanel {
 		
 		//Notes button
 		this.notesButton = new JButton("Notes");
-		this,notesButton.setPreferredSize(new Dimension(width/2,height/4));
+		this.notesButton.setPreferredSize(new Dimension(width/2,height/4));
 		gbc.gridy = 4;
 		gbc.gridx = 1;
 		gbc.gridwidth = 2;
@@ -126,4 +130,4 @@ public class InterfacePage extends JPanel {
 		gbc.weighty = 1;
 		this.add(notesButton);		
 	}
-}		
+}
