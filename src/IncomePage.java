@@ -1,11 +1,19 @@
-package src.ui.pages;
 
+import java.awt.CardLayout;
 import java.awt.FlowLayout;
 import java.time.LocalDateTime;
 import java.time.Month;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import src.transactions.Transaction;
+
+//Class to manage income page component.
+//This includes:
+//- Header (title and page controls)
+//- Date slider (date, total income and slider buttons)
+//- Day componenets (day. total income) 
+//- Transactions (title, category, icon. amount)
+//- Footer (sorting options) 
 
 public class IncomePage extends JPanel 
 {
@@ -15,13 +23,14 @@ public class IncomePage extends JPanel
 	 Instance Variables
 	*/
 	
-	//Dimensions
 	private static final long serialVersionUID = 1L;
 	
+	//Dimensions
 	int width;
 	int height;
 	
 	//Time
+	//set time to local time date when page is opened
 	LocalDateTime localDateTime;
 	int year;
 	Month month;
@@ -65,7 +74,9 @@ public class IncomePage extends JPanel
 		this.monthYearLabel = new JLabel(month+" "+year);
 		
 		//Body
-		JPanel body = new JPanel();
+		//Adds cardlayout to panel to manage transaction list and days
+		JPanel body = new JPanel(new CardLayout());
+		
 		
 		//Footer
 		JPanel footer = new JPanel();
